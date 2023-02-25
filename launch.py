@@ -1,13 +1,20 @@
-import os 
+import os
+import platform 
 from auction import Auction
 
+def clear():
+    print(platform.system())
+    if platform.system() == "Darwin":
+        os.system("clear") 
+    else:
+        os.system("cls") 
 
 def launch():
 
     valid_game = True
 
     while valid_game:
-        os.system("clear")
+        clear()
         print("Welcome to the Secret Auction")
         auction = Auction()
 
@@ -42,7 +49,7 @@ def launch():
 
             auction.new_bidder(name, bid)
 
-        os.system("clear")
+        clear()
         auction.check_winner()
 
         new_auction = input(
